@@ -8,7 +8,10 @@ let app = express()
 app.use(logger('dev'))
 app.use(bodyParser.json())
 
-mongoose.connect('mongodb://localhost:27017/mongoose-rest-api', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/mongoose-rest-api', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 
 const Account = mongoose.model('Account', {
   name: String,
